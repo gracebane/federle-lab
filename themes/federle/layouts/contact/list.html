@@ -1,0 +1,16 @@
+{{- define "main" }}
+<div id="contact-page">
+  <h2 class="contact-heading">Contact</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      {{ .Content }}
+    </div>
+    <div class="contact-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2444.632!2d0.1190!3d52.2030!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d870955d6de911%3A0x8d9a086a80b4b4a1!2sDepartment%20of%20Zoology%2C%20University%20of%20Cambridge!5e0!3m2!1sen!2suk!4v1"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
+{{- end }}

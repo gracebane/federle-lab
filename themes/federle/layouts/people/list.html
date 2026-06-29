@@ -1,0 +1,95 @@
+{{- define "main" }}
+<div id="people-page">
+  <h2 class="people-heading">People</h2>
+
+  {{- $gp := resources.Get "images/group_photo.jpg" }}
+  {{- with $gp }}
+  <div class="group-photo">
+    <img src="{{ .RelPermalink }}" alt="Lab group photo">
+  </div>
+  {{- end }}
+
+  {{- $pi := hugo.Data.people.pi }}
+  <div class="pi-card">
+    {{- $piphoto := resources.Get (printf "images/people/%s" $pi.photo) }}
+    <div class="pi-photo">
+      {{- with $piphoto }}<img src="{{ .RelPermalink }}" alt="{{ $pi.name }}">{{- end }}
+    </div>
+    <div class="pi-info">
+      <p class="pi-name">{{ $pi.name }}</p>
+      <p class="pi-title">{{ $pi.title }}</p>
+      <p class="pi-desc">{{ $pi.bio }}</p>
+      <div class="pi-links">
+        <a href="mailto:{{ $pi.email }}">{{ $pi.email }}</a>
+        {{- range $pi.links }}
+        <a href="{{ .url }}" target="_blank"><strong>{{ .label }}</strong></a>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+
+  {{- $students := hugo.Data.people.students }}
+  <div class="people-grid">
+    {{- range first 3 $students }}
+    {{- $s := . }}
+    {{- $photo := resources.Get (printf "images/people/%s" $s.photo) }}
+    <div class="person-card" onclick="document.getElementById('popup-{{ $s.id }}').classList.add('open')">
+      <div class="person-photo">
+        {{- with $photo }}<img src="{{ .RelPermalink }}" alt="{{ $s.name }}">{{- end }}
+      </div>
+      <p class="person-name">{{ $s.name }}</p>
+      <p class="person-position">{{ $s.position }}</p>
+    </div>
+    {{- end }}
+  </div>
+
+  {{- if gt (len $students) 3 }}
+  <div class="people-grid-bottom">
+    {{- range after 3 $students }}
+    {{- $s := . }}
+    {{- $photo := resources.Get (printf "images/people/%s" $s.photo) }}
+    <div class="person-card" onclick="document.getElementById('popup-{{ $s.id }}').classList.add('open')">
+      <div class="person-photo">
+        {{- with $photo }}<img src="{{ .RelPermalink }}" alt="{{ $s.name }}">{{- end }}
+      </div>
+      <p class="person-name">{{ $s.name }}</p>
+      <p class="person-position">{{ $s.position }}</p>
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  <h2 class="people-section-heading">Former Students</h2>
+  <ul class="former-grid">
+    {{- range hugo.Data.people.former }}
+    <li>{{ . }}</li>
+    {{- end }}
+  </ul>
+</div>
+
+{{- range hugo.Data.people.students }}
+{{- $s := . }}
+{{- $photo := resources.Get (printf "images/people/%s" $s.photo) }}
+<div class="person-popup-overlay" id="popup-{{ $s.id }}" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="person-popup">
+    <button class="popup-close" onclick="document.getElementById('popup-{{ $s.id }}').classList.remove('open')">×</button>
+    <div class="popup-inner">
+      <div class="popup-photo">
+        {{- with $photo }}<img src="{{ .RelPermalink }}" alt="">{{- end }}
+      </div>
+      <div class="popup-text">
+        <p class="popup-name">{{ $s.name }}</p>
+        <p class="popup-position">{{ $s.position }}</p>
+        <p class="popup-desc">{{ $s.bio }}</p>
+        <div class="popup-links">
+          <a href="mailto:{{ $s.email }}">{{ $s.email }}</a>
+          {{- range $s.links }}
+          <a href="{{ .url }}" target="_blank"><strong>{{ .label }}</strong></a>
+          {{- end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{- end }}
+{{- end }}

@@ -1,0 +1,16 @@
+{{- define "main" }}
+<div id="gallery-page">
+  <h2 class="gallery-heading">Gallery</h2>
+  <div class="gallery-flow">
+    {{- range resources.Match "images/gallery/*.jpg" }}
+    <img src="{{ .RelPermalink }}" alt="Gallery photo">
+    {{- end }}
+    {{- range resources.Match "images/gallery/*.jpeg" }}
+    <img src="{{ .RelPermalink }}" alt="Gallery photo">
+    {{- end }}
+    {{- range resources.Match "images/gallery/*.png" }}
+    <img src="{{ .RelPermalink }}" alt="Gallery photo">
+    {{- end }}
+  </div>
+</div>
+{{- end }}

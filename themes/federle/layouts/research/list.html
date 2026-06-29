@@ -1,0 +1,40 @@
+{{- define "main" }}
+<div id="research-page">
+  <h2 class="research-heading">Research</h2>
+  <div class="research-grid">
+    {{- range $i, $project := hugo.Data.research.projects }}
+    <div class="research-card" onclick="toggleDetail('detail-{{ $i }}')">
+      {{- if $project.image }}
+      {{- $img := resources.Get $project.image }}
+      {{- with $img }}<img src="{{ .RelPermalink }}" alt="{{ $project.title }}">
+      {{- else }}<div class="card-placeholder">Image coming soon</div>{{- end }}
+      {{- else }}
+      <div class="card-placeholder">Image coming soon</div>
+      {{- end }}
+      <h3>{{ $project.title }}</h3>
+    </div>
+    {{- if eq (mod (add $i 1) 2) 0 }}
+    <div class="research-detail" id="detail-{{ sub $i 1 }}">
+      <button class="close-btn" onclick="event.stopPropagation();document.getElementById('detail-{{ sub $i 1 }}').classList.remove('open')">×</button>
+      <p>{{ (index hugo.Data.research.projects (sub $i 1)).description }}</p>
+    </div>
+    <div class="research-detail" id="detail-{{ $i }}">
+      <button class="close-btn" onclick="event.stopPropagation();document.getElementById('detail-{{ $i }}').classList.remove('open')">×</button>
+      <p>{{ $project.description }}</p>
+    </div>
+    {{- end }}
+    {{- end }}
+  </div>
+</div>
+{{- end }}
+
+{{- define "scripts" }}
+<script>
+function toggleDetail(id) {
+  const d = document.getElementById(id);
+  const isOpen = d.classList.contains('open');
+  document.querySelectorAll('.research-detail').forEach(x => x.classList.remove('open'));
+  if (!isOpen) d.classList.add('open');
+}
+</script>
+{{- end }}

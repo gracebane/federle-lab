@@ -1,0 +1,10 @@
+{{- define "main" }}
+<div id="publications-page">
+  <h2 class="pubs-heading">Publications</h2>
+  {{- $content := .Content }}
+  {{- range .Site.RegularPages }}{{- end }}
+  <div class="pub-list">
+    {{ .Content }}
+  </div>
+</div>
+{{- end }}

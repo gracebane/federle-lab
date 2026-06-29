@@ -1,0 +1,80 @@
+pi:
+  name: "Prof. Walter Federle"
+  title: "Professor of Comparative Biomechanics"
+  photo: "walter-federle.webp"
+  email: "wf222@cam.ac.uk"
+  bio: "I am leader of the Insect Biomechanics Group. I am interested in how animals work, and what physical factors play an important role for their biology and interactions with other organisms. Our current focus is on the functional morphology and biomechanics of insects, on surface attachment mechanisms in animals, and insect-plant interactions."
+  links:
+    - label: "ResearchGate"
+      url: "https://www.researchgate.net/profile/Walter-Federle"
+
+students:
+  - id: "charlotte"
+    name: "Charlotte Andrew"
+    position: "PhD Student"
+    photo: "charlotte.webp"
+    email: "cnsa2@cam.ac.uk"
+    bio: "Studying fluid dynamics in Nepenthes pitcher plants, namely pitcher response to rainfall and the mechanical adaptations of pitcher infauna."
+    links:
+      - label: "Google Scholar"
+        url: "https://scholar.google.com/citations?user=YLLzCBAAAAAJ&hl=en&oi=sra"
+
+  - id: "monami"
+    name: "Monami Bhuyan"
+    position: "PhD Student"
+    photo: "monami.webp"
+    email: "mb2636@cam.ac.uk"
+    bio: "With a background in mechanical engineering, my research encompasses various mechanical testing methods for investigating the role of insect cuticular lipid layers in different biological functions such as waterproofing, lubrication, and adhesion."
+    links:
+      - label: "Google Scholar"
+        url: "https://scholar.google.com/citations?user=J7T0A4IAAAAJ&hl=en&oi=ao"
+      - label: "ORCiD"
+        url: "https://orcid.org/0000-0001-6816-371X"
+
+  - id: "ritabrata"
+    name: "Ritabrata Chowdhury"
+    position: "PhD Student"
+    photo: "ritabrata.jpg"
+    email: "rc855@cam.ac.uk"
+    bio: "I am currently studying the biomechanics and evolution of insect-plant interactions, by comparing the Heliconiine-Passiflora and the Macaranga-ant model systems. My PhD is co-supervised by Dr. Erika C. P. de Castro and Professor Christopher Jiggins."
+    links:
+      - label: "Google Scholar"
+        url: "https://scholar.google.com/citations?user=KoNrmb8AAAAJ&hl=en&oi=ao"
+      - label: "Bluesky"
+        url: "https://bsky.app/profile/ritabrata1907.bsky.social"
+
+  - id: "viggo"
+    name: "Viggo Rey"
+    position: "PhD Student"
+    photo: "viggo.jpg"
+    email: "vr382@cam.ac.uk"
+    bio: "Investigating mechanisms of ant adhesion."
+    links: []
+
+  - id: "kaiyue"
+    name: "Kaiyue Wu"
+    position: "PhD Student"
+    photo: "kaiyue.jpg"
+    email: "kw582@cam.ac.uk"
+    bio: "I study the biomechanics of underwater adhesion in diving beetles (Dytiscidae), focusing on the performance of male sucker setae and their mechanical interaction with the rough surfaces of females. My research also explores the functional advantages of these suction organs and provides insights for the design of bio-inspired suction devices."
+    links:
+      - label: "ResearchGate"
+        url: "https://www.researchgate.net/profile/Kaiyue-Wu-10?ev=brs_overview"
+
+former:
+  - "Dr Aleksandra Birn-Jeffery"
+  - "Dr Ulrike Bauer"
+  - "Dr Adam Robinson"
+  - "Dr David Labonte"
+  - "Dr Yanmin Zhou"
+  - "Dr Karin Moll"
+  - "Dr Hanns Hagen Goetzke"
+  - "Dr Ardian Jusufi"
+  - "Mathias Scharmann"
+  - "Dr Ed Barrett"
+  - "Dr Alexander Hackman"
+  - "Elmar Hackmann"
+  - "Kerstin Tüchert"
+  - "Ming-he Li"
+  - "Simon Chen"
+  - "Declan Foy"

@@ -1,0 +1,9 @@
+baseURL: 'https://federle-lab.netlify.app/'
+locale: en-GB
+title: Insect Biomechanics Group
+theme: federle
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
