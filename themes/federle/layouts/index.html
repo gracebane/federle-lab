@@ -15,7 +15,7 @@
     transition: opacity 0.3s;
   }
 .specimen img { width: 100%; height: auto; display: block; }
-#sp-pitcher        { width: 1050px; top: -400px; left: -32%; }
+#sp-pitcher        { width: 1050px; top: -400px; left: -32%; transform: scaleX(-1) rotate(20deg); }
 #sp-caterpillar    { width: 274px; bottom: 59px; top: auto; left: calc(2% + 140px); }
 #sp-butterfly      { width: 200px; top: calc(50% - 300px); left: calc(50% - 368px); }
 #sp-stick-leaf     { width: 280px; top: 0; right: calc(50% - 480px); }
@@ -126,6 +126,7 @@
 (function() {
   const hero = document.getElementById('hero');
   if (!hero) return;
+
   const leftIds  = ['sp-pitcher','sp-caterpillar'];
   const rightIds = ['sp-macaranga','sp-butterfly','sp-stick-leaf'];
 
@@ -137,7 +138,7 @@
     'sp-stick-leaf': '',
   };
 
-  window.addEventListener('scroll', () => {
+  function updateSpecimens() {
     const progress = Math.min(1, Math.max(0, window.scrollY / (hero.offsetHeight * 0.7)));
     leftIds.forEach((id, i) => {
       const el = document.getElementById(id);
@@ -153,7 +154,10 @@
       el.style.transform = `translateX(${progress * 52 * (0.8 + i * 0.1)}vw) scale(${1 - progress * 0.2}) ${base}`;
       el.style.opacity = 1 - progress * 0.8;
     });
-  });
+  }
+
+  updateSpecimens();
+  window.addEventListener('scroll', updateSpecimens);
 })();
 </script>
 {{- end}}

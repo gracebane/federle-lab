@@ -3,7 +3,7 @@ projects:
     image: "images/research/adhesion.jpg"
     description: ""
 
-  - title: "Nepenthes Pitcher Plants"
+  - title: "Pitcher Plants Fluid Mechanics"
     image: "images/research/nepenthes.jpg"
     description: ""
 
@@ -11,6 +11,6 @@ projects:
     image: "images/research/macaranga.jpg"
     description: ""
 
-  - title: "Insect Locomotion"
+  - title: "Cuticular Lipid Properties"
     image: "images/research/locomotion.jpg"
     description: ""

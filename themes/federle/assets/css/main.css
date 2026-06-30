@@ -91,6 +91,7 @@ footer {
   width: 1050px;
   top: -400px;
   left: -26%;
+  transform: scaleX(-1) rotate(20deg);
 }
 
 #sp-caterpillar {
