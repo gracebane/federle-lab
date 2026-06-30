@@ -250,7 +250,7 @@ footer {
 .research-detail {
   display: none;
   grid-column: 1 / -1;
-  background: var(#888888);
+  background: #b0b0b0;
   border: 2px solid var(#000000);
   padding: 32px;
   position: relative;
