@@ -15,12 +15,12 @@
     transition: opacity 0.3s;
   }
 .specimen img { width: 100%; height: auto; display: block; }
-#sp-pitcher        { width: 1050px; top: -400px; left: -32%; transform: scaleX(-1) rotate(20deg); }
-#sp-caterpillar    { width: 274px; bottom: 59px; top: auto; left: calc(2% + 140px); }
-#sp-butterfly      { width: 200px; top: calc(50% - 300px); left: calc(50% - 368px); }
-#sp-stick-leaf     { width: 280px; top: 0; right: calc(50% - 480px); }
+#sp-pitcher        { width: 3700px; top: -400px; left: -32%; transform: scaleX(-1) rotate(20deg); }
+#sp-caterpillar    { width: 820px; bottom: 59px; top: auto; left: calc(2% + 140px); }
+#sp-butterfly      { width: 320px; top: calc(50% - 260px); left: calc(50% + 190px); transform: scaleX(-1); }
+#sp-stick-leaf     { display: none; }
 #sp-stick-left     { display: none; }
-#sp-macaranga      { width: 260px; bottom: 20px; top: auto; right: 0%; }
+#sp-macaranga      { width: 650px; bottom: 20px; top: auto; right: 0%; }
 .hero-centre {
     position: relative;
     z-index: 10;
@@ -77,7 +77,6 @@
   #sp-pitcher { width: 620px; top: -240px; left: -32%; }
   #sp-caterpillar { width: 170px; left: calc(2% + 80px); }
   #sp-butterfly { width: 130px; top: calc(50% - 200px); left: calc(50% - 240px); }
-  #sp-stick-leaf { width: 170px; right: calc(50% - 300px); }
   #sp-macaranga { width: 160px; }
   .stamp-svg-wrap { height: 340px; width: 128px; margin-top: -89px; margin-bottom: -134px; }
   .stamp-svg-wrap svg { width: 128px; height: 340px; }
@@ -93,7 +92,6 @@
      floating loosely around the middle of the screen */
   #sp-pitcher { width: 320px; top: -115px; left: -30%; }
   #sp-butterfly { width: 105px; top: 100px; left: 8%; }
-  #sp-stick-leaf { width: 115px; top: 8px; right: 4%; }
   #sp-caterpillar { width: 120px; bottom: 16px; left: 4%; }
   #sp-macaranga { width: 110px; bottom: 12px; right: 3%; }
 
@@ -175,7 +173,7 @@
     'sp-pitcher':   'scaleX(-1) rotate(-20deg)',
     'sp-caterpillar': '',
     'sp-macaranga': '',
-    'sp-butterfly': '',
+    'sp-butterfly': 'scaleX(-1)',
     'sp-stick-leaf': '',
   };
 
