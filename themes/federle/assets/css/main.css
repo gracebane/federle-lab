@@ -885,10 +885,8 @@ footer {
   nav a { font-size: 0.82rem; padding: 4px; }
   .nav-ant svg { height: 30px; }
 
-  /* Home hero — decorative specimens overflow badly at this size, hide them
-     and let the central stamp carry the page */
+  /* Home hero */
   .home-hero { min-height: 60vh; padding: 24px 0; }
-  .specimen { display: none; }
 
   .stamp-svg-wrap {
     height: 260px;
