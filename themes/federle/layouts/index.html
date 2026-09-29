@@ -15,12 +15,12 @@
     transition: opacity 0.3s;
   }
 .specimen img { width: 100%; height: auto; display: block; }
-#sp-pitcher        { width: 3700px; top: -400px; left: -32%; transform: scaleX(-1) rotate(20deg); transform-origin: top left; }
-#sp-caterpillar    { width: 820px; bottom: 59px; top: auto; left: calc(2% + 140px); }
-#sp-butterfly      { width: 320px; top: calc(50% - 260px); left: calc(50% + 190px); transform: scaleX(-1); }
-#sp-stick-leaf     { display: none; }
+#sp-pitcher        { width: 1050px; top: -400px; left: -32%; transform: scaleX(-1) rotate(20deg); }
+#sp-caterpillar    { width: 274px; bottom: 59px; top: auto; left: calc(2% + 140px); }
+#sp-butterfly      { width: 200px; top: calc(50% - 300px); left: calc(50% - 368px); }
+#sp-stick-leaf     { width: 280px; top: 0; right: calc(50% - 480px); }
 #sp-stick-left     { display: none; }
-#sp-macaranga      { width: 650px; bottom: 20px; top: auto; right: 0%; }
+#sp-macaranga      { width: 260px; bottom: 20px; top: auto; right: 0%; }
 .hero-centre {
     position: relative;
     z-index: 10;
@@ -77,6 +77,7 @@
   #sp-pitcher { width: 620px; top: -240px; left: -32%; }
   #sp-caterpillar { width: 170px; left: calc(2% + 80px); }
   #sp-butterfly { width: 130px; top: calc(50% - 200px); left: calc(50% - 240px); }
+  #sp-stick-leaf { display: none; }
   #sp-macaranga { width: 160px; }
   .stamp-svg-wrap { height: 340px; width: 128px; margin-top: -89px; margin-bottom: -134px; }
   .stamp-svg-wrap svg { width: 128px; height: 340px; }
@@ -87,13 +88,21 @@
      appears once the visitor scrolls */
   #hero { min-height: 100vh; padding: 24px 0; }
 
-  /* Specimens anchored to the four corners (one extra tucked upper-left)
-     so they read as a deliberate frame around the stamp instead of
-     floating loosely around the middle of the screen */
-  #sp-pitcher { width: 320px; top: -115px; left: -30%; }
-  #sp-butterfly { width: 105px; top: 100px; left: 8%; }
-  #sp-caterpillar { width: 120px; bottom: 16px; left: 4%; }
-  #sp-macaranga { width: 110px; bottom: 12px; right: 3%; }
+  /* Specimens enlarged and anchored to the four corners (one extra
+     tucked upper-left) so they read as a deliberate frame around the
+     stamp instead of floating loosely around the middle of the screen.
+     transform-origin is pinned to the anchored corner so the enlarged,
+     rotated pitcher scales in place instead of swinging its rotation
+     pivot toward the middle of the (much wider) box. */
+  #sp-pitcher { width: 1100px; top: -115px; left: -30%; transform-origin: top left; }
+  #sp-butterfly {
+    width: 150px;
+    top: calc(50% - 85px);
+    left: calc(50% + 50px);
+    transform: scaleX(-1);
+  }
+  #sp-caterpillar { width: 360px; bottom: 16px; left: 4%; }
+  #sp-macaranga { width: 275px; bottom: 12px; right: 3%; }
 
   .stamp-svg-wrap { height: 180px; width: 68px; margin-top: -47px; margin-bottom: -71px; }
   .stamp-svg-wrap svg { width: 68px; height: 180px; }
@@ -173,12 +182,13 @@
     'sp-pitcher':   'scaleX(-1) rotate(-20deg)',
     'sp-caterpillar': '',
     'sp-macaranga': '',
-    'sp-butterfly': 'scaleX(-1)',
+    'sp-butterfly': '',
     'sp-stick-leaf': '',
   };
 
   function updateSpecimens() {
     const progress = Math.min(1, Math.max(0, window.scrollY / (hero.offsetHeight * 0.7)));
+    const isMobile = window.innerWidth <= 480;
     leftIds.forEach((id, i) => {
       const el = document.getElementById(id);
       if (!el) return;
@@ -189,7 +199,11 @@
     rightIds.forEach((id, i) => {
       const el = document.getElementById(id);
       if (!el) return;
-      const base = baseTransforms[id] || '';
+      // The butterfly is only mirrored on phones (see the ≤480px CSS
+      // block) — this inline style would otherwise silently overwrite
+      // that mirror on every scroll/resize regardless of screen size.
+      let base = baseTransforms[id] || '';
+      if (id === 'sp-butterfly' && isMobile) base = 'scaleX(-1)';
       el.style.transform = `translateX(${progress * 52 * (0.8 + i * 0.1)}vw) scale(${1 - progress * 0.2}) ${base}`;
       el.style.opacity = 1 - progress * 0.8;
     });
@@ -197,6 +211,7 @@
 
   updateSpecimens();
   window.addEventListener('scroll', updateSpecimens);
+  window.addEventListener('resize', updateSpecimens);
 })();
 </script>
 {{- end}}
