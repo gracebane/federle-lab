@@ -91,21 +91,22 @@
   /* Specimens enlarged and anchored to the four corners (one extra
      tucked upper-left) so they read as a deliberate frame around the
      stamp instead of floating loosely around the middle of the screen.
-     transform-origin is pinned to the anchored corner so the enlarged,
-     rotated pitcher scales in place instead of swinging its rotation
-     pivot toward the middle of the (much wider) box. */
-  #sp-pitcher { width: 1100px; top: -115px; left: -30%; transform-origin: top left; }
+     No transform-origin override here: scaleX(-1) mirrors in place
+     only when its origin stays at the box's horizontal center — pin
+     it to a corner instead and the whole flipped image translates a
+     full box-width away, off screen entirely. */
+  #sp-pitcher { width: 1100px; top: -115px; left: -30%; }
   #sp-butterfly {
     width: 150px;
-    top: calc(50% - 85px);
+    top: calc(50% - 160px);
     left: calc(50% + 50px);
     transform: scaleX(-1);
   }
-  #sp-caterpillar { width: 360px; bottom: 16px; left: 4%; }
-  #sp-macaranga { width: 275px; bottom: 12px; right: 3%; }
+  #sp-caterpillar { width: 360px; bottom: 6px; left: 1%; }
+  #sp-macaranga { width: 193px; bottom: 4px; right: 1%; }
 
-  .stamp-svg-wrap { height: 180px; width: 68px; margin-top: -47px; margin-bottom: -71px; }
-  .stamp-svg-wrap svg { width: 68px; height: 180px; }
+  .stamp-svg-wrap { height: 207px; width: 78px; margin-top: -54px; margin-bottom: -82px; }
+  .stamp-svg-wrap svg { width: 78px; height: 207px; }
 
   /* Resize the box directly (not transform: scale) so the -90deg
      rotation inherited from .lino-svg-wrap on the same element isn't
