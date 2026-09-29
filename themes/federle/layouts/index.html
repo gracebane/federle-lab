@@ -88,13 +88,14 @@
      appears once the visitor scrolls */
   #hero { min-height: 100vh; padding: 24px 0; }
 
-  /* Specimens scaled down and rearranged to fit a narrow screen instead
-     of hidden — same five plants/insects as desktop, just smaller */
-  #sp-pitcher { width: 260px; top: -90px; left: -26%; }
-  #sp-caterpillar { width: 95px; bottom: 20px; left: calc(2% + 20px); }
-  #sp-butterfly { width: 85px; top: 55px; left: calc(50% - 70px); }
-  #sp-stick-leaf { width: 95px; top: 8px; right: 4%; }
-  #sp-macaranga { width: 90px; bottom: 12px; right: 2%; }
+  /* Specimens anchored to the four corners (one extra tucked upper-left)
+     so they read as a deliberate frame around the stamp instead of
+     floating loosely around the middle of the screen */
+  #sp-pitcher { width: 320px; top: -115px; left: -30%; }
+  #sp-butterfly { width: 105px; top: 100px; left: 8%; }
+  #sp-stick-leaf { width: 115px; top: 8px; right: 4%; }
+  #sp-caterpillar { width: 120px; bottom: 16px; left: 4%; }
+  #sp-macaranga { width: 110px; bottom: 12px; right: 3%; }
 
   .stamp-svg-wrap { height: 180px; width: 68px; margin-top: -47px; margin-bottom: -71px; }
   .stamp-svg-wrap svg { width: 68px; height: 180px; }
