@@ -73,7 +73,7 @@
 .lino-beetle svg { width: 85px; height: auto; }
 
 @media (max-width: 768px) {
-  #hero { min-height: 80vh; padding: 40px 0; }
+  #hero { min-height: 100vh; padding: 40px 0; }
   #sp-pitcher { width: 620px; top: -240px; left: -32%; }
   #sp-caterpillar { width: 170px; left: calc(2% + 80px); }
   #sp-butterfly { width: 130px; top: calc(50% - 200px); left: calc(50% - 240px); }
@@ -84,12 +84,32 @@
 }
 
 @media (max-width: 480px) {
-  #hero { min-height: 60vh; padding: 24px 0; }
-  .specimen { display: none; }
+  /* Hero fills the initial viewport so the grey section below only
+     appears once the visitor scrolls */
+  #hero { min-height: 100vh; padding: 24px 0; }
+
+  /* Specimens scaled down and rearranged to fit a narrow screen instead
+     of hidden — same five plants/insects as desktop, just smaller */
+  #sp-pitcher { width: 260px; top: -90px; left: -26%; }
+  #sp-caterpillar { width: 95px; bottom: 20px; left: calc(2% + 20px); }
+  #sp-butterfly { width: 85px; top: 55px; left: calc(50% - 70px); }
+  #sp-stick-leaf { width: 95px; top: 8px; right: 4%; }
+  #sp-macaranga { width: 90px; bottom: 12px; right: 2%; }
+
   .stamp-svg-wrap { height: 180px; width: 68px; margin-top: -47px; margin-bottom: -71px; }
   .stamp-svg-wrap svg { width: 68px; height: 180px; }
-  .lino-butterfly, .lino-ant, .lino-beetle { transform: scale(0.65); }
-  .lino-pitcher { margin-left: -20px; margin-right: -20px; transform: scale(0.85); }
+
+  /* Resize the box directly (not transform: scale) so the -90deg
+     rotation inherited from .lino-svg-wrap on the same element isn't
+     clobbered by a second transform declaration */
+  .lino-butterfly { width: 45px; height: 45px; top: -5px; }
+  .lino-butterfly svg { height: 65px; width: auto; }
+  .lino-ant { width: 40px; height: 40px; top: -5px; }
+  .lino-ant svg { width: 40px; height: auto; }
+  .lino-pitcher { width: 92px; height: 92px; margin-left: -20px; margin-right: -20px; }
+  .lino-pitcher svg { width: 92px; height: auto; }
+  .lino-beetle { width: 42px; height: 42px; top: -5px; }
+  .lino-beetle svg { width: 42px; height: auto; }
 }
 </style>
 

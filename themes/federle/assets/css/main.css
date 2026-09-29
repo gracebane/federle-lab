@@ -765,11 +765,17 @@ footer {
 @media (max-width: 768px) {
 
   /* Nav — collapse to a hamburger + dropdown, same links as desktop */
-  nav { padding: 6px 16px; }
+  nav { padding: 6px 16px; position: relative; justify-content: center; }
 
   .nav-left, .nav-right { display: none; }
 
-  .nav-toggle-btn { display: flex; }
+  .nav-toggle-btn {
+    display: flex;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
   .nav-ant svg { height: 36px; }
 
