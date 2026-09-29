@@ -72,6 +72,18 @@
 .lino-beetle    { width: 85px;  height: 85px; position: relative; top: -10px; }
 .lino-beetle svg { width: 85px; height: auto; }
 
+/* Large monitors: the specimens mix edge-anchored (left/right) and
+   center-anchored (calc(50% +/- Npx)) positioning. Past a big-laptop
+   width the edge-anchored ones keep sliding toward the corners while
+   the center-anchored ones stay put, spreading the composition apart
+   with a growing empty gap. Cap the hero at the same width it was
+   designed/approved at and center it — same pattern already used for
+   the research/publications/contact sections — so any extra monitor
+   width just becomes plain background padding on the sides. */
+@media (min-width: 1600px) {
+  #hero { max-width: 1600px; margin: 0 auto; }
+}
+
 @media (max-width: 768px) {
   #hero { min-height: 100vh; padding: 40px 0; }
   #sp-pitcher { width: 620px; top: -240px; left: -32%; }
