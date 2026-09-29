@@ -58,6 +58,29 @@ nav a.active { color: var(--brown); font-weight: 700; }
 
 .nav-ant svg { height: 44px; width: auto; display: block; }
 
+/* Mobile dropdown menu — hidden on desktop, activated in the ≤768px block below */
+.nav-toggle-checkbox { display: none; }
+
+.nav-toggle-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.nav-toggle-btn span {
+  display: block;
+  height: 3px;
+  background: #000000;
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-dropdown { display: none; }
+
 /* ── Footer ── */
 footer {
   background: #888888;
@@ -741,25 +764,47 @@ footer {
 ══════════════════════════════════════ */
 @media (max-width: 768px) {
 
-  /* Nav */
-  nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4px 12px;
-    padding: 8px 16px;
-  }
+  /* Nav — collapse to a hamburger + dropdown, same links as desktop */
+  nav { padding: 6px 16px; }
 
-  .nav-ant { order: -1; flex: 0 0 100%; margin-bottom: 4px; }
+  .nav-left, .nav-right { display: none; }
 
-  .nav-left, .nav-right {
-    flex: 1 1 auto;
-    justify-content: center;
-    gap: 4px;
-  }
-
-  nav a { font-size: 0.9rem; padding: 4px 6px; }
+  .nav-toggle-btn { display: flex; }
 
   .nav-ant svg { height: 36px; }
+
+  .nav-dropdown {
+    flex-direction: column;
+    background: #888888;
+    padding: 4px 16px 12px;
+  }
+
+  .nav-toggle-checkbox:checked ~ .nav-dropdown { display: flex; }
+
+  .nav-dropdown a {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    padding: 12px 4px;
+    border-top: 1px solid rgba(0,0,0,0.15);
+  }
+
+  .nav-dropdown a:hover,
+  .nav-dropdown a.active { color: var(--brown); }
+
+  .nav-toggle-checkbox:checked ~ nav .nav-toggle-btn span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .nav-toggle-checkbox:checked ~ nav .nav-toggle-btn span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle-checkbox:checked ~ nav .nav-toggle-btn span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 
   /* Home hero */
   .home-hero { min-height: 80vh; padding: 40px 0; }
