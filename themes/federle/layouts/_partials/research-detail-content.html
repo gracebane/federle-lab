@@ -1,0 +1,24 @@
+{{- /*
+Renders a research project's detail panel content.
+Projects with a "description_blocks" list (paragraph/image blocks, in
+order) render those; everything else falls back to the plain
+"description" string.
+
+@example: {{ partial "research-detail-content.html" $project }}
+*/}}
+{{- if .description_blocks }}
+  {{- range .description_blocks }}
+    {{- if eq .type "image" }}
+    {{- $block := . }}
+    <figure class="research-detail-figure">
+      {{- $img := resources.Get $block.src }}
+      {{- with $img }}<img src="{{ .RelPermalink }}" alt="{{ $block.caption }}">{{- end }}
+      {{- with $block.caption }}<figcaption>{{ . }}</figcaption>{{- end }}
+    </figure>
+    {{- else }}
+    <p>{{ .text }}</p>
+    {{- end }}
+  {{- end }}
+{{- else }}
+  <p>{{ .description }}</p>
+{{- end }}

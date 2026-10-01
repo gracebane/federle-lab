@@ -1,6 +1,30 @@
 {{- define "main" }}
 <div id="gallery-page">
-  <h2 class="gallery-heading">Gallery</h2>
+  <h2 class="gallery-heading">Media</h2>
+
+  <div class="media-top">
+    <div class="media-videos">
+      {{- range hugo.Data.videos.videos }}
+      <div class="media-video">
+        <iframe
+          src="https://www.youtube.com/embed/{{ .youtube_id }}"
+          title="{{ .title }}"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          loading="lazy"
+          allowfullscreen
+        ></iframe>
+      </div>
+      {{- end }}
+    </div>
+
+    <ul class="media-links">
+      {{- range $item := hugo.Data.articles.items }}
+      <li><a href="{{ $item.url }}" target="_blank" rel="noopener">{{ $item.title }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+
+  <h2 class="gallery-heading gallery-subheading">Gallery</h2>
   <div class="gallery-flow">
     {{- range resources.Match "images/gallery/*.jpg" }}
     <img src="{{ .RelPermalink }}" alt="Gallery photo">

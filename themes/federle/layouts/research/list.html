@@ -16,11 +16,11 @@
     {{- if eq (mod (add $i 1) 2) 0 }}
     <div class="research-detail" id="detail-{{ sub $i 1 }}">
       <button class="close-btn" onclick="event.stopPropagation();document.getElementById('detail-{{ sub $i 1 }}').classList.remove('open')">×</button>
-      <p>{{ (index hugo.Data.research.projects (sub $i 1)).description }}</p>
+      {{ partial "research-detail-content.html" (index hugo.Data.research.projects (sub $i 1)) }}
     </div>
     <div class="research-detail" id="detail-{{ $i }}">
       <button class="close-btn" onclick="event.stopPropagation();document.getElementById('detail-{{ $i }}').classList.remove('open')">×</button>
-      <p>{{ $project.description }}</p>
+      {{ partial "research-detail-content.html" $project }}
     </div>
     {{- end }}
     {{- end }}

@@ -1,15 +1,15 @@
 {{- define "main" }}
 <div id="news-page">
   <h2 class="news-heading">Lab News</h2>
+  {{- $news := where .Site.RegularPages "Section" "news" }}
+  {{- $sorted := sort $news "Date" "desc" }}
   <div class="news-layout">
     {{- $pitcher := resources.Get "images/pitcher_news.png" }}
     <div class="news-pitcher">
       {{- with $pitcher }}<img src="{{ .RelPermalink }}" alt="Nepenthes pitcher plant">{{- end }}
     </div>
     <div class="news-boxes">
-      {{- $news := where .Site.RegularPages "Section" "news" }}
-      {{- $sorted := sort $news "Date" "desc" }}
-      {{- range $sorted }}
+      {{- range first 2 $sorted }}
       <div class="news-box">
         <div class="news-box-text">
           {{ .Content }}
@@ -23,5 +23,22 @@
       {{- end }}
     </div>
   </div>
+
+  {{- if gt (len $sorted) 2 }}
+  <div class="news-boxes news-boxes-full">
+    {{- range after 2 $sorted }}
+    <div class="news-box">
+      <div class="news-box-text">
+        {{ .Content }}
+        {{- with .Params.date_label }}<br><strong>{{ . }}</strong>{{- end }}
+      </div>
+      {{- range .Params.images }}
+      {{- $img := resources.Get (printf "images/news/%s" .) }}
+      {{- with $img }}<img class="news-box-img" src="{{ .RelPermalink }}" alt="News photo">{{- end }}
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
 </div>
 {{- end }}

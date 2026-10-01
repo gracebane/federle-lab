@@ -65,6 +65,13 @@
     <li>{{ . }}</li>
     {{- end }}
   </ul>
+
+  <h2 class="people-section-heading">Collaborators</h2>
+  <ul class="former-grid collaborators-grid">
+    {{- range hugo.Data.people.collaborators }}
+    <li>{{ . }}</li>
+    {{- end }}
+  </ul>
 </div>
 
 {{- range hugo.Data.people.students }}

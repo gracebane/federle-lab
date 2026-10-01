@@ -4,6 +4,7 @@ title: Publications
 
 ## 2026
 
+- Andrew CNS, Bu JY, Kelly NS, Johnson S, Metali F, Grafe TU, Bauer U &amp; Federle W. An insect trap adjusting to weather conditions: Nepenthes rafflesiana plants control the fluid level in their pitchers to maximise prey capture. *Annals of Botany*. 137 (3): 833-846. [doi:10.1093/aob/mcaf294](https://doi.org/10.1093/aob/mcaf294)
 - Andrew C, Bu JY, Howell IJ &amp; Federle W. Regulation of pitcher fluid volume and properties in six ecologically distinct Bornean Nepenthes species. *Preprint*.
 - Greenway G, Woodman T, Emberts Z, Miller CW &amp; Federle W. Adult nutrition strongly affects insect cuticle thickness and injury resistance. *Journal of the Royal Society Interface*. [doi:10.1098/rsif.2025.0089](https://doi.org/10.1098/rsif.2025.0089)
 

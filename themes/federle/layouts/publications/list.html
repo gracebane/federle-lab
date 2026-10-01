@@ -6,5 +6,15 @@
   <div class="pub-list">
     {{ .Content }}
   </div>
+
+  <h2 class="people-section-heading">Posters</h2>
+  <div class="posters-grid">
+    {{- range $p := hugo.Data.posters.posters }}
+    <div class="poster-item">
+      {{- $img := resources.Get $p.image }}
+      {{- with $img }}<img src="{{ .RelPermalink }}" alt="Poster: {{ $p.title }}">{{- end }}
+    </div>
+    {{- end }}
+  </div>
 </div>
 {{- end }}

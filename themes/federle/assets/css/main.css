@@ -295,6 +295,24 @@ footer {
 .research-detail p {
   font-size: 0.95rem;
   line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.research-detail-figure {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.research-detail-figure img {
+  max-width: 100%;
+  border: 2px solid var(--green-dk);
+}
+
+.research-detail-figure figcaption {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  font-style: italic;
+  opacity: 0.8;
 }
 
 /* ══════════════════════════════════════
@@ -500,6 +518,14 @@ footer {
   text-align: center;
 }
 
+/* Collaborator entries include an institution, so they're longer than
+   the plain names in Former Students — give them two wider columns */
+.collaborators-grid {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 900px;
+  gap: 14px 24px;
+}
+
 /* ══════════════════════════════════════
    PUBLICATIONS PAGE
 ══════════════════════════════════════ */
@@ -593,6 +619,15 @@ footer {
   clear: both;
 }
 
+/* Once past the pitcher image's height, let boxes stretch full-width
+   instead of leaving room for it */
+.news-boxes-full {
+  margin-left: 0;
+  padding-right: 80px;
+  padding-left: 80px;
+  margin-top: 50px;
+}
+
 .news-box {
   background: #b0b0b0;
   border: 2px solid var(#000000);
@@ -631,6 +666,66 @@ footer {
   font-weight: 500;
   text-align: center;
   margin-bottom: 40px;
+}
+
+.gallery-subheading {
+  margin-top: 60px;
+}
+
+.media-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.media-videos {
+  flex: 1 1 400px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.media-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 2px solid var(--green-dk);
+  overflow: hidden;
+  background: #000;
+}
+
+.media-video iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+.media-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1 1 280px;
+}
+
+.media-links li {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  margin-bottom: 10px;
+}
+
+.media-links a {
+  color: var(--green-dk);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.media-links a:hover,
+.media-links a:focus-visible {
+  color: var(--brown);
 }
 
 .gallery-grid {
@@ -750,6 +845,21 @@ footer {
 
 .pub-list a:hover { text-decoration: underline; }
 
+.posters-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.poster-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 2px solid var(--green-dk);
+}
+
 /* News box text wrapper */
 .news-box-text {
   flex: 1;
@@ -858,14 +968,18 @@ footer {
 
   /* Publications */
   #publications-page { padding: 40px 24px 60px; }
+  .posters-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* News */
   .news-layout { padding: 0 20px 0 0; }
   .news-pitcher { float: none; width: 60%; margin: 0 auto 24px; display: block; }
   .news-boxes { margin-left: 0; padding-right: 0; }
+  .news-boxes-full { padding-left: 20px; padding-right: 20px; margin-top: 24px; }
 
   /* Gallery */
   #gallery-page { padding: 40px 20px 60px; }
+  .media-top { flex-direction: column; }
+  .media-videos { max-width: 100%; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-flow { column-count: 2; }
 
@@ -927,18 +1041,22 @@ footer {
   #publications-page { padding: 32px 16px 48px; }
   .pubs-heading { font-size: 1.4rem; }
   .pub-entry, .pub-list li { font-size: 0.84rem; }
+  .posters-grid { grid-template-columns: 1fr; gap: 16px; }
 
   /* News */
   .news-heading { font-size: 1.4rem; margin-bottom: 32px; }
   .news-layout { padding: 0 12px 0 0; }
   .news-pitcher { width: 75%; }
   .news-boxes { gap: 24px; }
+  .news-boxes-full { padding-left: 12px; padding-right: 12px; }
   .news-box { flex-direction: column; text-align: center; padding: 16px; }
   .news-box .news-box-img { height: 140px; width: 100%; object-fit: cover; }
 
   /* Gallery */
   #gallery-page { padding: 32px 12px 48px; }
   .gallery-heading { font-size: 1.4rem; }
+  .gallery-subheading { margin-top: 32px; }
+  .media-videos { gap: 16px; }
   .gallery-grid { grid-template-columns: 1fr; }
   .gallery-flow { column-count: 1; }
 
